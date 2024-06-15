@@ -9,6 +9,11 @@ views = Blueprint('views', __name__)
 @views.route('/', methods=['GET', 'POST'])
 @login_required
 def home():
+    return render_template("home.html", user=current_user)
+
+@views.route('/notes', methods=['GET', 'POST'])
+@login_required
+def notes():
     if request.method == 'POST':
         note = request.form.get('note')
 
@@ -20,9 +25,10 @@ def home():
             db.session.commit()
             flash('Note added!', category='success')
 
-    return render_template("home.html", user=current_user)
+    return render_template("notes.html", user=current_user)
 
 @views.route('/delete-note', methods=['POST'])
+@login_required
 def delete_note():
     note = json.loads(request.data)
     noteId = note['noteId']
@@ -33,3 +39,7 @@ def delete_note():
             db.session.commit()
     
     return jsonify({})
+
+@views.route('/passwords', methods=['GET', 'POST'])
+def keymanager():
+    return render_template("passwords.html", user=current_user) 

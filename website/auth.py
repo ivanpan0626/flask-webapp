@@ -27,7 +27,6 @@ def login():
 
     return render_template("login.html", user=current_user)
 
-
 @auth.route('/logout')
 @login_required
 def logout():
@@ -36,7 +35,7 @@ def logout():
 
 
 @auth.route('/signup', methods=['GET', 'POST'])
-def sign_up():
+def signup():
     if request.method == 'POST':
         email = request.form.get('email')
         first_name = request.form.get('firstName')
