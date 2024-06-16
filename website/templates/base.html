@@ -17,7 +17,7 @@
     >
     <link
       rel="stylesheet"
-      href="{{ url_for('static', filename='index.css')}}"
+      href="{{ url_for('static', filename='base.css')}}"
     >
 
     <title>{% block title %}{% endblock %}</title>
@@ -38,6 +38,7 @@
           {% if user.is_authenticated %}
           <a class="nav-item nav-link" id="home" href="/">Home</a>
           <a class="nav-item nav-link" id="notes-page" href="/notes">Notes</a>
+          <a class="nav-item nav-link" id="tasks-page" href="/tasks">Tasks</a>
           <a class="nav-item nav-link" id="key-page" href="/passwords">Keys</a>
           {% else %}
           <a class="nav-item nav-link" id="login" href="/login">Login</a>
@@ -96,7 +97,7 @@
     ></script>
     <script
       type="text/javascript"
-      src="{{ url_for('static', filename='index.js')}}"
+      src="{{ url_for('static', filename='base.js')}}"
     ></script>
   </body>
 

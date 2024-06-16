@@ -1,6 +1,6 @@
 function deleteNote(noteId) {
-    var confirmLogout = confirm("Delete note?");
-   if(confirmLogout){
+    var confirmDelete = confirm("Delete note?");
+   if(confirmDelete){
     fetch('/delete-note', {
         method: 'POST',
         body: JSON.stringify({noteId: noteId})

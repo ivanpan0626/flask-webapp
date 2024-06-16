@@ -1,0 +1,44 @@
+{% extends "base.html" %} {% block title %}Passwords Manager{% endblock %}
+
+{% block content %}
+<head>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <!-- Font Awesome cdn css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='tasks.css')}}"
+    >
+    <title>To Do</title>
+</head>
+<body>
+
+    <header>
+        <h1>My Tasks</h1>
+    </header>
+    <form id="task-form">
+        <input type="text" class="task-input" id="task-input">
+        <button class="task-btn" type="submit">
+            <i class="fas fa-plus-circle fa-lg"></i>
+        </button>
+        <div class="select">
+            <select name="task-filter" class="filter-task">
+                <option value="all">All</option>
+                <option value="completed">Completed</option>
+                <option value="incomplete">Incomplete</option>
+            </select>
+        </div>
+    </form>
+    <div class="task-list-container">
+        <ul class="task-list"></ul>
+    </div>
+
+    <script
+      type="text/javascript"
+      src="{{ url_for('static', filename='tasks.js')}}"
+    ></script>
+</body>
+{% endblock %}
